@@ -36,7 +36,7 @@ namespace Gnome
                 }
             }
 
-            Leader.IsBarking = Input.GetButton("Jump");
+            Leader.IsBarking = Input.GetButton("Bark");
         }
     }
 }
