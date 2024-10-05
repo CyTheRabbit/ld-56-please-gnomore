@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7559382738608170609, guid: 0a1073eb4eb494ee4ab5c1e1fb19a88b, type: 3}
       propertyPath: m_Name
-      value: Static Gnome Variant
+      value: Gnome Leader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 0}
   Overtaking: 0.25
   AvoidanceDistance: 3.5
+  SocialDistance: 2
 --- !u!114 &5889102876119390592
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ namespace Gnome
         [Range(0, 1)]
         public float Overtaking = 0.25f;
         public float AvoidanceDistance = 3;
+        public float SocialDistance = 2;
 
         public void FixedUpdate()
         {
@@ -72,6 +73,19 @@ namespace Gnome
                 };
             }
 
+            for (var i = 0; i < navigations.Length; i++)
+            {
+                ref var navigation = ref navigations[i];
+                var fromLeader = navigation.CurrentPosition - leaderPosition;
+                var target = navigation.CurrentPosition + fromLeader.normalized * SocialDistance;
+                var factor = Mathf.Clamp01(1 - fromLeader.magnitude);
+                
+                navigation.Target = new GnomeMovement.Target
+                {
+                    Position = Vector2.Lerp(navigation.Target.Position, target, factor),
+                    Radius = Mathf.Lerp(navigation.Target.Radius, 0.1f, factor),
+                };
+            }
             foreach (var navigation in navigations)
             {
                 Debug.DrawLine(navigation.CurrentPosition, navigation.Target.Position, Color.yellow);
