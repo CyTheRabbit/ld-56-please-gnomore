@@ -28,14 +28,26 @@ namespace Gnome
         public float Overtaking = 0.25f;
         public float AvoidanceDistance = 3;
         public float SocialDistance = 2;
+        public float GrumpyDistance = 3;
+        public float GrumpyHeatUp = 3;
+        public float GrumpyCoolDown = 3;
+
+        public bool IsBarking;
+
+        private float grumpiness;
+        private float grumpinessVelocity;
 
         public void FixedUpdate()
         {
-            if (Leader.Destination is not { } destination) return;
+            var leaderPosition = Leader.Position;
+            var destination = Leader.Destination ?? new GnomeMovement.Target
+            {
+                Position = leaderPosition,
+                Radius = 0.1f,
+            };
 
             using var nativeNavigations = new NativeArray<NavigationData>(Followers.Count, Allocator.Temp);
             var navigations = nativeNavigations.AsSpan();
-            var leaderPosition = Leader.Position;
 
             InitNavigationData(navigations, leaderPosition);
             AssignRanks(nativeNavigations, navigations);
@@ -86,10 +98,38 @@ namespace Gnome
                     Radius = Mathf.Lerp(navigation.Target.Radius, 0.1f, factor),
                 };
             }
+
+            ApplyBarking(navigations, leaderPosition);
+
             foreach (var navigation in navigations)
             {
                 Debug.DrawLine(navigation.CurrentPosition, navigation.Target.Position, Color.yellow);
-                Followers[navigation.Index].Destination = navigation.Target;
+
+                var follower = Followers[navigation.Index];
+                var isAlreadyThere = Vector2.Distance(navigation.CurrentPosition, navigation.Target.Position) <= navigation.Target.Radius;
+                follower.Destination = isAlreadyThere ? null : navigation.Target;
+            }
+        }
+
+        private void ApplyBarking(Span<NavigationData> navigations, Vector2 leaderPosition)
+        {
+            var smoothTime = IsBarking ? GrumpyHeatUp : GrumpyCoolDown;
+            grumpiness = Mathf.SmoothDamp(grumpiness, IsBarking ? 1 : 0, ref grumpinessVelocity, smoothTime);
+
+            for (var i = 0; i < navigations.Length; i++)
+            {
+                ref var navigation = ref navigations[i];
+                var fromLeader = navigation.CurrentPosition - leaderPosition;
+                var target = navigation.CurrentPosition + fromLeader.normalized * (grumpiness * GrumpyDistance);
+                var factor = 1 / fromLeader.magnitude;
+
+                Debug.DrawLine(navigation.CurrentPosition, target, Color.red);
+
+                navigation.Target = new GnomeMovement.Target
+                {
+                    Position = Vector2.Lerp(navigation.Target.Position, target, factor),
+                    Radius = Mathf.Lerp(navigation.Target.Radius, 0.1f, factor),
+                };
             }
         }
 
@@ -97,10 +137,18 @@ namespace Gnome
         {
             for (var i = 0; i < navigations.Length; i++)
             {
-                ref var navigation = ref navigations[i];
-                navigation.Index = i;
-                navigation.CurrentPosition = Followers[i].Position;
-                navigation.RankDistance = Vector2.Distance(leaderPosition, navigation.CurrentPosition);
+                var position = Followers[i].Position;
+                navigations[i] = new NavigationData
+                {
+                    Index = i,
+                    CurrentPosition = position,
+                    RankDistance = Vector2.Distance(leaderPosition, position),
+                    Target =
+                    {
+                        Position = position,
+                        Radius = 0.1f,
+                    },
+                };
             }
         }
 

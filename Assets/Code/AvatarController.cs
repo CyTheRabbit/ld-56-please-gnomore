@@ -5,6 +5,7 @@ namespace Gnome
     public class AvatarController : MonoBehaviour
     {
         public GnomeMovement Movement;
+        public LeaderController Leader;
         public float DestinationDistance = 2;
 
         public void Update()
@@ -34,6 +35,8 @@ namespace Gnome
                     Movement.Destination = null;
                 }
             }
+
+            Leader.IsBarking = Input.GetButton("Jump");
         }
     }
 }
