@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Gnome
@@ -13,6 +14,7 @@ namespace Gnome
         public float MovementSmoothTime;
         public float SpeedLimit;
         public Rigidbody2D Body;
+        public GnomeAnimator Animator;
 
         public Target? Destination;
 
@@ -37,6 +39,8 @@ namespace Gnome
                 Vector2.SmoothDamp(Position, destination.Position, ref velocity, MovementSmoothTime, SpeedLimit);
                 Body.velocity = velocity;
             }
+
+            Animator.IsMoving = Destination != null;
         }
     }
 }
