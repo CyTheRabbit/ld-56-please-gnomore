@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: {fileID: 907490524378217527}
+  DestinationDistance: 2
 --- !u!114 &1146275433991167675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,11 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854c143cd3454ee58f5d9bc7dd269dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowerPlace: []
+  Leader: {fileID: 907490524378217527}
   Followers: []
-  TriggerDistance: 1.25
-  StopDistance: 1
-  GatheringCircleRadius: 1
+  Overtaking: 0.25
+  AvoidanceDistance: 3.5
 --- !u!114 &2079796918043785614
 MonoBehaviour:
   m_ObjectHideFlags: 0

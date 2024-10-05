@@ -5,6 +5,7 @@ namespace Gnome
     public class AvatarController : MonoBehaviour
     {
         public GnomeMovement Movement;
+        public float DestinationDistance = 2;
 
         public void Update()
         {
@@ -24,7 +25,7 @@ namespace Gnome
                 {
                     Movement.Destination = new GnomeMovement.Target
                     {
-                        Position = Movement.Position + inputDirection.normalized * 2,
+                        Position = Movement.Position + inputDirection.normalized * DestinationDistance,
                         Radius = 0.1f,
                     };
                 }
