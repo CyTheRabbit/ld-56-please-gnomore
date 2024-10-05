@@ -21,7 +21,9 @@ namespace Gnome
             public int Compare(NavigationData x, NavigationData y) =>
                 x.RankDistance.CompareTo(y.RankDistance);
         }
-        
+
+        private const float DefaultDestinationRadius = 0.1f;
+
         public GnomeMovement Leader;
         public List<GnomeMovement> Followers;
         [Range(0, 1)]
@@ -31,6 +33,9 @@ namespace Gnome
         public float GrumpyDistance = 3;
         public float GrumpyHeatUp = 3;
         public float GrumpyCoolDown = 3;
+        [Space]
+        public float FollowDistanceFromLeader = 1f;
+        public float CrowdSpread = 0.15f;
 
         public bool IsBarking;
 
@@ -43,7 +48,7 @@ namespace Gnome
             var destination = Leader.Destination ?? new GnomeMovement.Target
             {
                 Position = leaderPosition,
-                Radius = 0.1f,
+                Radius = DefaultDestinationRadius,
             };
 
             using var nativeNavigations = new NativeArray<NavigationData>(Followers.Count, Allocator.Temp);
@@ -63,7 +68,7 @@ namespace Gnome
                 follower.Target = new GnomeMovement.Target
                 {
                     Position = leaderTarget,
-                    Radius = 0.5f + follower.Rank * 0.1f,
+                    Radius = FollowDistanceFromLeader + follower.Rank * CrowdSpread,
                 };
             }
 
@@ -81,7 +86,7 @@ namespace Gnome
                 follower.Target = new GnomeMovement.Target
                 {
                     Position = Vector2.Lerp(follower.Target.Position, avoid, avoidanceFactor),
-                    Radius = Mathf.Lerp(follower.Target.Radius, 0.1f, avoidanceFactor),
+                    Radius = Mathf.Lerp(follower.Target.Radius, DefaultDestinationRadius, avoidanceFactor),
                 };
             }
 
@@ -95,7 +100,7 @@ namespace Gnome
                 navigation.Target = new GnomeMovement.Target
                 {
                     Position = Vector2.Lerp(navigation.Target.Position, target, factor),
-                    Radius = Mathf.Lerp(navigation.Target.Radius, 0.1f, factor),
+                    Radius = Mathf.Lerp(navigation.Target.Radius, DefaultDestinationRadius, factor),
                 };
             }
 
@@ -128,7 +133,7 @@ namespace Gnome
                 navigation.Target = new GnomeMovement.Target
                 {
                     Position = Vector2.Lerp(navigation.Target.Position, target, factor),
-                    Radius = Mathf.Lerp(navigation.Target.Radius, 0.1f, factor),
+                    Radius = Mathf.Lerp(navigation.Target.Radius, DefaultDestinationRadius, factor),
                 };
             }
         }
@@ -146,7 +151,7 @@ namespace Gnome
                     Target =
                     {
                         Position = position,
-                        Radius = 0.1f,
+                        Radius = DefaultDestinationRadius,
                     },
                 };
             }

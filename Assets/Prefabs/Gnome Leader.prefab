@@ -114,45 +114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leader: {fileID: 77466209119743243}
-  Followers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Followers: []
   Overtaking: 0.25
   AvoidanceDistance: 3.5
   SocialDistance: 2
   GrumpyDistance: 2.5
   GrumpyHeatUp: 0.1
   GrumpyCoolDown: 0.5
+  FollowDistanceFromLeader: 0.5
+  CrowdSpread: 0.15
   IsBarking: 0
 --- !u!114 &5889102876119390592
 MonoBehaviour:

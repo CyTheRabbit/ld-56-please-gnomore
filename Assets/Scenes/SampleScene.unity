@@ -4681,6 +4681,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420032}
     - target: {fileID: 8271315656064952261, guid: 23d95ca53fccf4cc18eac65cbdda0556, type: 3}
+      propertyPath: Followers.Array.size
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271315656064952261, guid: 23d95ca53fccf4cc18eac65cbdda0556, type: 3}
       propertyPath: Followers.Array.data[0]
       value: 
       objectReference: {fileID: 1778835385}
