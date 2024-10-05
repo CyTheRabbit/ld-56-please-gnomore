@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gnome
 {
@@ -18,7 +19,7 @@ namespace Gnome
 
         public Transform Body;
         public Rigidbody2D Rigidbody;
-        public SpriteRenderer BodySprite;
+        public SpriteRenderer[] SpriteRenderers;
         public float WalkSpeed;
         public float Tilt;
         public float JumpHeight;
@@ -66,7 +67,11 @@ namespace Gnome
             var velocityX = Rigidbody.velocity.x;
             if (Mathf.Abs(velocityX) > 0.05f)
             {
-                BodySprite.flipX = velocityX < 0;
+                var flipX = velocityX < 0;
+                foreach (var sprite in SpriteRenderers)
+                {
+                    sprite.flipX = flipX;
+                }
             }
         }
     }
