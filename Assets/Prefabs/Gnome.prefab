@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ed6dbf65004510ae2e1f7aca72aebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSmoothTime: 0.25
-  SpeedLimit: 15
+  MovementSmoothTime: 0.15
+  SpeedLimit: 11
   Body: {fileID: 1035866127943587778}
 --- !u!58 &5457420907767460666
 CircleCollider2D:
