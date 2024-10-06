@@ -4,39 +4,12 @@ namespace Gnome
 {
     public class AvatarController : MonoBehaviour
     {
-        public GnomeMovement Movement;
         public LeaderController Leader;
-        public float DestinationDistance = 2;
 
-        public void Update()
+        public void Start()
         {
-            if (Input.GetMouseButton(0))
-            {
-                var mousePosition = (Vector2) Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(distance: 0f);
-                Movement.Destination = new GnomeMovement.Target
-                {
-                    Position = mousePosition,
-                    Radius = 0.01f,
-                };
-            }
-            else
-            {
-                var inputDirection = (Vector2.up * Input.GetAxis("Vertical") + Vector2.right * Input.GetAxis("Horizontal"));
-                if (inputDirection.magnitude > 0.1f)
-                {
-                    Movement.Destination = new GnomeMovement.Target
-                    {
-                        Position = Movement.Position + inputDirection.normalized * DestinationDistance,
-                        Radius = 0.1f,
-                    };
-                }
-                else
-                {
-                    Movement.Destination = null;
-                }
-            }
-
-            Leader.IsBarking = Input.GetButton("Bark");
+            var gnome = GetComponent<GnomeAgent>();
+            gnome.SetBehaviour(new GnomePlayerBehaviour(gnome, Leader, Camera.main));
         }
     }
 }
