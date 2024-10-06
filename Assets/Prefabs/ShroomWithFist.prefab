@@ -356,7 +356,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 486b7ce1e6d6d4270bf881a8e679951d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8920b8228c894afcb9f8af6972e036f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -376,6 +376,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1611460910822222469, guid: ab4a58849fd8d4862b9aa7f715a0a85a, type: 3}
+      propertyPath: Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611460910822222469, guid: ab4a58849fd8d4862b9aa7f715a0a85a, type: 3}
       propertyPath: AttackRange
       value: 1.5
       objectReference: {fileID: 0}
@@ -385,7 +389,11 @@ PrefabInstance:
       objectReference: {fileID: 6780334342800454178}
     - target: {fileID: 3127297982299099087, guid: ab4a58849fd8d4862b9aa7f715a0a85a, type: 3}
       propertyPath: m_Name
-      value: Frog
+      value: ShroomWithFist
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507381386835593940, guid: ab4a58849fd8d4862b9aa7f715a0a85a, type: 3}
+      propertyPath: MaxHealth
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4507381386835593940, guid: ab4a58849fd8d4862b9aa7f715a0a85a, type: 3}
       propertyPath: MoveOnHit

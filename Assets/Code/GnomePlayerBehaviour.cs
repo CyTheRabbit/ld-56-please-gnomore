@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Gnome
@@ -40,6 +41,7 @@ namespace Gnome
 
         private void ReadInputs()
         {
+            var hadDestination = gnome.Destination.HasValue;
             if (Input.GetMouseButton(0))
             {
                 var mousePosition = (Vector2) camera.ScreenPointToRay(Input.mousePosition).GetPoint(distance: 0f);
@@ -65,8 +67,20 @@ namespace Gnome
                     gnome.Destination = null;
                 }
             }
+            if (!hadDestination && gnome.Destination.HasValue)
+            {
+                gnome.StartWalk();
+            }
+            else if (hadDestination && !gnome.Destination.HasValue)
+            {
+                gnome.StopWalk();
+            }
 
             leader.IsBarking = Input.GetButton("Bark");
+            if (Input.GetButtonDown("Bark"))
+            {
+                gnome.Bark();
+            }
         }
     }
 }

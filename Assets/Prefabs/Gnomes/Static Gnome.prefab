@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: SpriteRenderers.Array.data[0]
       value: 
       objectReference: {fileID: 5260792715416847023}
+    - target: {fileID: 2940338279169051229, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5472133439420431115, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
       propertyPath: m_Name
       value: Static Gnome

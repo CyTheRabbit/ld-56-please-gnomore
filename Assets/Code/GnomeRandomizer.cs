@@ -31,13 +31,11 @@ namespace Gnome
 
             BodyRenderer.color = BodyColor.Evaluate(Random.value);
             HeadRenderer.color = HeadColor.Evaluate(Random.value);
-            FaceRenderer.sprite = RandomElement(FaceVariants);
+            FaceRenderer.sprite = FaceVariants.RandomElement();
             HatRenderer.color = HatColor.Evaluate(Random.value);
-            HatRenderer.sprite = RandomElement(HatVariants);
+            HatRenderer.sprite = HatVariants.RandomElement();
             BeardRenderer.color = BeardColor.Evaluate(Random.value);
-            BeardRenderer.sprite = RandomElement(BeardVariants);
+            BeardRenderer.sprite = BeardVariants.RandomElement();
         }
-
-        private static T RandomElement<T>(T[] variants) => variants[Random.Range(0, variants.Length)];
     }
 }

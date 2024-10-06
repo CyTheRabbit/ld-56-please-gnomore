@@ -512,6 +512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 450644018644793314, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1992168730289933188, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
       propertyPath: SpriteRenderers.Array.size
       value: 6
@@ -607,7 +611,7 @@ PrefabInstance:
       addedObject: {fileID: 9043872695503044753}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5472133439420431115, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
-      insertIndex: -1
+      insertIndex: 7
       addedObject: {fileID: 2917751087795618613}
   m_SourcePrefab: {fileID: 100100000, guid: e283a41eb34b9479e8a9eee616331763, type: 3}
 --- !u!1 &3912870955467601260 stripped

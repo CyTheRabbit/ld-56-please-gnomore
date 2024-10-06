@@ -78,7 +78,7 @@ namespace Gnome
 
         public void LandPunch()
         {
-            Destroy(activeVictim.gameObject);
+            activeVictim.Perish();
         }
     }
 }

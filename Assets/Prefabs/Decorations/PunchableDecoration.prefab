@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e476b0dc9d544d51b5dd5debbb80f54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 6
   MaxOpponents: 3
   AttackPriority: 5
   Body: {fileID: 3179301841447256490}

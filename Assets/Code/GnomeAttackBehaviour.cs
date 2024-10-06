@@ -41,8 +41,7 @@ namespace Gnome
                 }
                 else
                 {
-                    var hitDirection = (victim.Position - gnome.Position).normalized;
-                    victim.TakeHit(hitDirection);
+                    gnome.Punch(victim);
                     yield return new WaitForSeconds(punchCooldown);
                 }
                 yield return new WaitForFixedUpdate();

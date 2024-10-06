@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Gnome
@@ -10,12 +9,15 @@ namespace Gnome
             int Priority { get; }
             void Start();
             void End();
+
+            void OnPerish() { }
         }
 
         private GnomeMovement movement;
         private GnomeAnimator animator;
         private IBehaviour behaviour;
         private new CircleCollider2D collider;
+        private GnomeVoice voice;
 
         public Crowd Crowd;
 
@@ -35,6 +37,7 @@ namespace Gnome
         {
             movement = GetComponent<GnomeMovement>();
             animator = GetComponent<GnomeAnimator>();
+            voice = GetComponent<GnomeVoice>();
         }
 
         public void OnEnable()
@@ -52,6 +55,35 @@ namespace Gnome
             behaviour?.End();
             behaviour = newBehaviour;
             behaviour?.Start();
+        }
+
+        public void Punch(IPunchable victim)
+        {
+            var hitDirection = (victim.Position - Position).normalized;
+            victim.TakeHit(hitDirection);
+            voice.Punch();
+        }
+
+        public void Bark()
+        {
+            voice.Bark();
+        }
+
+        public void Perish()
+        {
+            behaviour?.OnPerish();
+            voice.Perish();
+            Destroy(gameObject);
+        }
+
+        public void StartWalk()
+        {
+            voice.StartWalk();
+        }
+
+        public void StopWalk()
+        {
+            voice.StopWalk();
         }
     }
 }
