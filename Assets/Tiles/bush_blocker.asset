@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
-  m_Name: water_blocker
+  m_Name: bush_blocker
   m_EditorClassIdentifier: 
   m_Angles:
   - m_Start: -180
     m_End: 180
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: d8eade50e9fe9164bbd9231eea847ce8, type: 3}
-  m_FillTexture: {fileID: 0}
+    - {fileID: 21300000, guid: a02bfbfa820ceaf4d8a070d51d8dcc3a, type: 3}
+  m_FillTexture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
