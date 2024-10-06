@@ -19,20 +19,30 @@ namespace Gnome
                 x.Distance.CompareTo(y.Distance);
         }
         
-        public int Health;
+        public int MaxHealth;
         public int MaxOpponents;
         public int AttackPriority;
         public CircleCollider2D Body;
         public BounceAnimator BounceAnimator;
 
+        [HideInInspector]
+        public int Health;
+
         public Vector2 Position => transform.position;
         public int Priority => AttackPriority;
         public float Radius => Body.radius;
 
+        [HideInInspector]
         public List<GnomeAgent> Opponents = new();
+        [HideInInspector]
         public List<GnomeAgent> OpponentsInQueue = new();
 
         public bool IsDead => this == null || Health <= 0;
+
+        public void Start()
+        {
+            Health = MaxHealth;
+        }
 
         public void FixedUpdate()
         {
@@ -59,17 +69,17 @@ namespace Gnome
             }
             nativeCandidates.Sort(new OpponentComparerByDistance());
             var places = Math.Min(MaxOpponents - Opponents.Count, candidates.Length);
+            var winners = 0;
             for (var i = 0; i < places; i++)
             {
                 var winner = OpponentsInQueue[candidates[i].Index];
                 var becameOpponent = Provoke(winner);
-                if (!becameOpponent)
+                if (becameOpponent)
                 {
-                    i--;
-                    places--;
+                    winners++;
                 }
             }
-            for (var i = Opponents.Count - places; i < Opponents.Count; i++)
+            for (var i = Opponents.Count - winners; i < Opponents.Count; i++)
             {
                 OpponentsInQueue.Remove(Opponents[i]);
             }

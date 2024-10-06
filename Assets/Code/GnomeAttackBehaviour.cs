@@ -53,7 +53,11 @@ namespace Gnome
 
         public void End()
         {
-            gnome.StopCoroutine(attackCoroutine);
+            if (attackCoroutine != null)
+            {
+                gnome.StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
         }
     }
 }

@@ -4641,7 +4641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485824317053921040, guid: f7b858da3ca74d94595ba5cbd79f24a2, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 7.142621
+      value: 7.1426215
       objectReference: {fileID: 0}
     - target: {fileID: 2485824317053921040, guid: f7b858da3ca74d94595ba5cbd79f24a2, type: 3}
       propertyPath: m_Sprites.Array.data[0]
@@ -5484,10 +5484,6 @@ PrefabInstance:
     - target: {fileID: 3611763328487371373, guid: 64d0f48aa3afc423d82a3a810ba13126, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6665590570274854473, guid: 64d0f48aa3afc423d82a3a810ba13126, type: 3}
-      propertyPath: AttackRange
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7042368221100028675, guid: 64d0f48aa3afc423d82a3a810ba13126, type: 3}
       propertyPath: m_Name
