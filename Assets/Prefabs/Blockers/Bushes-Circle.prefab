@@ -1090,7 +1090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6341798100292084864, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6341798100292084864, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
       propertyPath: m_LocalAABB.m_Center.x
