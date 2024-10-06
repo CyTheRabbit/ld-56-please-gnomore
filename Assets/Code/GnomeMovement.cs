@@ -12,6 +12,9 @@ namespace Gnome
         
         public float MovementSmoothTime;
         public float SpeedLimit;
+        public float Acceleration = 2;
+        public float WalkDrag = 30;
+        public float StopDrag = 100;
         public Rigidbody2D Body;
         public GnomeAnimator Animator;
 
@@ -28,15 +31,18 @@ namespace Gnome
         {
             if (Destination is { } destination)
             {
-                if (Vector2.Distance(Position, destination.Position) < destination.Radius)
+                var toDestination = destination.Position - Position;
+                if (toDestination.magnitude < destination.Radius)
                 {
+                    Body.drag = StopDrag;
                     Destination = null;
-                    return;
                 }
-
-                var velocity = Body.velocity;
-                Vector2.SmoothDamp(Position, destination.Position, ref velocity, MovementSmoothTime, SpeedLimit);
-                Body.velocity = velocity;
+                else
+                {
+                    var target = toDestination.normalized * SpeedLimit;
+                    Body.velocity = Vector2.MoveTowards(Body.velocity, target, Time.deltaTime * Acceleration);
+                    Body.drag = WalkDrag;
+                }
             }
 
             Animator.IsMoving = Destination != null;

@@ -138,7 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2388762961666599061, guid: 22d9cb1a986e945c0b91e6daea488177, type: 3}
       propertyPath: MoveOnHit
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388762961666599061, guid: 22d9cb1a986e945c0b91e6daea488177, type: 3}
+      propertyPath: TiltOnHit
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3179301841447256490, guid: 22d9cb1a986e945c0b91e6daea488177, type: 3}
       propertyPath: m_Radius

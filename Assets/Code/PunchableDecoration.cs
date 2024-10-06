@@ -23,15 +23,7 @@ namespace Gnome
         public int MaxOpponents;
         public int AttackPriority;
         public CircleCollider2D Body;
-        public Transform VisualRoot;
-        [Range(0, 1000)]
-        public float TiltOnHit;
-        [Range(0, 30)]
-        public float MoveOnHit;
-        public float SmoothTime;
-
-        private Vector2 moveVelocity;
-        private float tiltVelocity;
+        public BounceAnimator BounceAnimator;
 
         public Vector2 Position => transform.position;
         public int Priority => AttackPriority;
@@ -42,20 +34,11 @@ namespace Gnome
 
         public bool IsDead => this == null || Health <= 0;
 
-        public void Update()
-        {
-            var position = VisualRoot.localPosition;
-            var rotation = VisualRoot.eulerAngles.z;
-
-            position = Vector2.SmoothDamp(position, Vector2.zero, ref moveVelocity, SmoothTime);
-            rotation = Mathf.SmoothDamp(rotation, 0, ref tiltVelocity, SmoothTime);
-
-            VisualRoot.localPosition = position;
-            VisualRoot.rotation = Quaternion.Euler(0, 0, rotation);
-        }
-
         public void FixedUpdate()
         {
+            Opponents.RemoveAll(gnome => gnome == null);
+            OpponentsInQueue.RemoveAll(gnome => gnome == null);
+
             if (Opponents.Count < MaxOpponents && OpponentsInQueue.Count > 0)
             {
                 EngageNewOpponents();
@@ -101,8 +84,7 @@ namespace Gnome
                 Destroy(gameObject);
             }
 
-            moveVelocity = hitDirection * MoveOnHit;
-            tiltVelocity = hitDirection.x * -TiltOnHit;
+            BounceAnimator.Bump(hitDirection);
         }
 
         public bool Provoke(GnomeAgent gnome)
@@ -130,6 +112,10 @@ namespace Gnome
             if (Opponents.Remove(gnome))
             {
                 gnome.SetBehaviour(null);
+            }
+            else
+            {
+                OpponentsInQueue.Remove(gnome);
             }
         }
     }

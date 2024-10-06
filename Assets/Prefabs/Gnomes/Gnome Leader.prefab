@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leader: {fileID: 9069259125708667452}
-  InitialCrowdRadius: 5
   JoinRadius: 3
   FollowPriority: 0
   Overtaking: 0.25

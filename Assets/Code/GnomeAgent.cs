@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Gnome
@@ -14,10 +15,13 @@ namespace Gnome
         private GnomeMovement movement;
         private GnomeAnimator animator;
         private IBehaviour behaviour;
+        private new CircleCollider2D collider;
 
         public Crowd Crowd;
 
         public Vector2 Position => transform.position;
+
+        public float Radius => collider.radius;
 
         public IBehaviour Behaviour => behaviour;
 
@@ -31,6 +35,16 @@ namespace Gnome
         {
             movement = GetComponent<GnomeMovement>();
             animator = GetComponent<GnomeAnimator>();
+        }
+
+        public void OnEnable()
+        {
+            behaviour?.Start();
+        }
+
+        public void OnDisable()
+        {
+            behaviour?.End();
         }
 
         public void SetBehaviour(IBehaviour newBehaviour)

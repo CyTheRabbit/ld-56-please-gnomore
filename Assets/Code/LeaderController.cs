@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 
 namespace Gnome
@@ -9,7 +8,6 @@ namespace Gnome
         private const float DefaultDestinationRadius = 0.1f;
 
         public GnomeAgent Leader;
-        public float InitialCrowdRadius = 5;
         public float JoinRadius = 3;
         public int FollowPriority = 0;
         [Range(0, 1)]
@@ -28,13 +26,11 @@ namespace Gnome
         private float grumpiness;
         private float grumpinessVelocity;
 
-        private Collider2D[] neighbours = new Collider2D[128];
+        private readonly Collider2D[] neighbours = new Collider2D[128];
 
         public void Start()
         {
-            var crowd = Leader.Crowd = new Crowd();
-
-            InviteNeighbours(InitialCrowdRadius);
+            Leader.Crowd = new Crowd();
         }
 
         public void FixedUpdate()

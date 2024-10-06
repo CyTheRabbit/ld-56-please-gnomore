@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 1056261601366526398}
   - component: {fileID: 2388762961666599061}
   - component: {fileID: 3179301841447256490}
+  - component: {fileID: 6876685230152589792}
+  - component: {fileID: 3760715335729162501}
   m_Layer: 0
   m_Name: PunchableDecoration
   m_TagString: Untagged
@@ -82,10 +84,7 @@ MonoBehaviour:
   MaxOpponents: 3
   AttackPriority: 5
   Body: {fileID: 3179301841447256490}
-  VisualRoot: {fileID: 4621187190220136508}
-  TiltOnHit: 300
-  MoveOnHit: 18
-  SmoothTime: 0.15
+  BounceAnimator: {fileID: 6876685230152589792}
   Opponents: []
   OpponentsInQueue: []
 --- !u!58 &3179301841447256490
@@ -123,6 +122,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6876685230152589792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815344972797844933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9efcb7ae1f40e7ad4f4588d99625d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 4621187190220136508}
+  InertiaStrength: 30
+  DragStrength: 20
+  OffsetLimit: 1
+  TiltLimit: 1
+  OffsetMagnitude: 5
+  TiltMagnitude: 60
+  OffsetBumpStrength: 5
+  TiltBumpStrength: 15
+--- !u!114 &3760715335729162501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815344972797844933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16960846ee0e4c6eabebbe59e867f410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8013256824288516522
 GameObject:
   m_ObjectHideFlags: 0
