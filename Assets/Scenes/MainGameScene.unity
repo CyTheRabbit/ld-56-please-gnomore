@@ -5495,7 +5495,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5686,6 +5686,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5776,7 +5777,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -5
+  near clip plane: -100
   far clip plane: 100
   field of view: 34
   orthographic: 1
@@ -5811,6 +5812,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de837dd8d089417aa88e2b5ca1c3866c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AreaStrength: 0.9
+  SmoothTime: 0.3
+  Camera: {fileID: 519420031}
+  Player: {fileID: 0}
 --- !u!1001 &547226958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5933,7 +5950,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: f47e702c8a4ce0f488add24b46e203e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20231,6 +20248,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420032}
     - target: {fileID: 8271315656064952261, guid: 23d95ca53fccf4cc18eac65cbdda0556, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 8271315656064952261, guid: 23d95ca53fccf4cc18eac65cbdda0556, type: 3}
       propertyPath: Followers.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -20499,11 +20520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6871104754874824507, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.5
+      value: 39.55
       objectReference: {fileID: 0}
     - target: {fileID: 6871104754874824507, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.59
+      value: 4.08
       objectReference: {fileID: 0}
     - target: {fileID: 6871104754874824507, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
       propertyPath: m_LocalPosition.z

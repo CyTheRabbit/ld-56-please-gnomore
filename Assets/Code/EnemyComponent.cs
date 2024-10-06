@@ -40,10 +40,13 @@ namespace Gnome
 
         public void FixedUpdate()
         {
-            var target = GetMoveTarget();
-            var velocity = Rigidbody.velocity;
-            Vector2.SmoothDamp(Rigidbody.position, target, ref velocity, SmoothTime, maxSpeed: Speed);
-            Rigidbody.velocity = velocity;
+            if (Speed > 0)
+            {
+                var target = GetMoveTarget();
+                var velocity = Rigidbody.velocity;
+                Vector2.SmoothDamp(Rigidbody.position, target, ref velocity, SmoothTime, maxSpeed: Speed);
+                Rigidbody.velocity = velocity;
+            }
 
             if (activeVictim == null && FindAttackTarget() is { } victim)
             {
