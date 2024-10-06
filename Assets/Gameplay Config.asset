@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3772fe09bd5d49de98d25cbb9e1e4af4, type: 3}
+  m_Name: Gameplay Config
+  m_EditorClassIdentifier: 
+  JoinRadius: 3
+  FollowPriority: 0
+  Overtaking: 0.25
+  AvoidanceDistance: 3.5
+  SocialDistance: 2
+  GrumpyDistance: 2.5
+  GrumpyHeatUp: 0.1
+  GrumpyCoolDown: 0.5
+  FollowDistanceFromLeader: 0.5
+  CrowdSpread: 0.15

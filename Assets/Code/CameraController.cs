@@ -1,24 +1,24 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Gnome
 {
     public class CameraController : MonoBehaviour
     {
-        public Transform CameraTransform;
         [Range(0, 1)]
         public float AreaStrength;
         public float SmoothTime;
+        public Camera Camera;
 
         private Vector2 velocity;
+        public GnomeAgent Player;
 
         public void Update()
         {
+            if (Player == null) return;
             var screenSize = new Vector2(16, 9);
-            var screenTile = Vector2Int.RoundToInt(transform.position / screenSize); 
-            var target = Vector2.Lerp(transform.position, screenTile * screenSize, AreaStrength);
-            CameraTransform.position = Vector2.SmoothDamp(CameraTransform.position, target, ref velocity, SmoothTime);
+            var screenTile = Vector2Int.RoundToInt(Player.Position / screenSize); 
+            var target = Vector2.Lerp(Player.Position, screenTile * screenSize, AreaStrength);
+            transform.position = Vector2.SmoothDamp(transform.position, target, ref velocity, SmoothTime);
         }
 
         private void OnDrawGizmos()
