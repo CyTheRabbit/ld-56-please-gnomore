@@ -38,6 +38,7 @@ namespace Gnome
 
         public void Start()
         {
+            game.OnLeaderChanged(leader);
             camera.Player = leader;
             crowd.Invite(leader);
             leader.WalksSilently = false;
@@ -47,6 +48,7 @@ namespace Gnome
 
         public void End()
         {
+            game.OnLeaderChanged(null);
             camera.Player = null;
             crowd.Exile(leader);
             leader.WalksSilently = true;

@@ -10,6 +10,7 @@ namespace Gnome
         public Animation IntroAnimation;
         public Animation GameOverAnimation;
         public GameObject GameOverScreen;
+        public GameObject WinScreen;
         public GameUI GameUI;
         public GnomeAgent FirstGnome;
         public CameraController CameraController;
@@ -21,6 +22,8 @@ namespace Gnome
 
         private bool muteNoise = false;
         private int gnomeDustCount = 0;
+        private GnomeAgent leader = null;
+        private const int GnomeDustToWin = 1;
 
         public void Awake()
         {
@@ -69,6 +72,17 @@ namespace Gnome
         {
             gnomeDustCount++;
             GameUI.SetGnomeDustCount(gnomeDustCount);
+            if (gnomeDustCount >= GnomeDustToWin)
+            {
+                WinScreen.SetActive(true);
+                leader?.SetBehaviour(null);
+                GameUI.gameObject.SetActive(false);
+            }
+        }
+
+        public void OnLeaderChanged(GnomeAgent gnome)
+        {
+            leader = gnome;
         }
 
         public void RestartGame()
