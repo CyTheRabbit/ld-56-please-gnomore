@@ -14,6 +14,7 @@ namespace Gnome
             public float RankDistance;
             public Vector2 CurrentPosition;
             public GnomeMovement.Target Target;
+            public bool Ignore;
         }
 
         public struct OrdersRankDistanceComparer : IComparer<Order>
@@ -54,6 +55,7 @@ namespace Gnome
         {
             foreach (var order in orders)
             {
+                if (order.Ignore) { continue; }
                 var follower = Members[order.Index];
                 var isAlreadyThere = Vector2.Distance(order.CurrentPosition, order.Target.Position) <= order.Target.Radius;
                 follower.Destination = isAlreadyThere ? null : order.Target;

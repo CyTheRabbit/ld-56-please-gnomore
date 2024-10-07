@@ -34,6 +34,7 @@ namespace Gnome
         {
             camera.Player = leader;
             crowd.Invite(leader);
+            leader.WalksSilently = false;
             fixedUpdateCoroutine = leader.StartCoroutine(FixedUpdateLoop());
             inputCoroutine = leader.StartCoroutine(InputLoop());
         }
@@ -42,6 +43,7 @@ namespace Gnome
         {
             camera.Player = null;
             crowd.Exile(leader);
+            leader.WalksSilently = true;
 
             if (fixedUpdateCoroutine != null)
             {
@@ -86,7 +88,6 @@ namespace Gnome
 
         private void ReadInputs()
         {
-            var hadDestination = leader.Destination.HasValue;
             if (Input.GetMouseButton(0))
             {
                 var mousePosition = (Vector2) camera.Camera.ScreenPointToRay(Input.mousePosition).GetPoint(distance: 0f);
@@ -111,14 +112,6 @@ namespace Gnome
                 {
                     leader.Destination = null;
                 }
-            }
-            if (!hadDestination && leader.Destination.HasValue)
-            {
-                leader.StartWalk();
-            }
-            else if (hadDestination && !leader.Destination.HasValue)
-            {
-                leader.StopWalk();
             }
 
             isBarking = Input.GetButton("Bark");
@@ -149,8 +142,24 @@ namespace Gnome
                 ApplyLeaderAvoidance(orders, leaderPosition, leaderDirection);
                 ApplySocialDistance(orders, leaderPosition);
                 ApplyBarking(orders, leaderPosition);
+                ExcludeLeader(orders);
 
                 leader.Crowd.RunOrders(orders);
+            }
+
+            leader.Destination = destination;
+        }
+
+        private void ExcludeLeader(Span<Crowd.Order> orders)
+        {
+            var leaderIndex = crowd.Members.IndexOf(leader);
+            for (var i = 0; i < orders.Length; i++)
+            {
+                ref var order = ref orders[i];
+                if (order.Index == leaderIndex)
+                {
+                    order.Ignore = true;
+                }
             }
         }
 

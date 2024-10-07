@@ -30,7 +30,18 @@ namespace Gnome
         public GnomeMovement.Target? Destination
         {
             get => movement.Destination;
-            set => movement.Destination = value;
+            set
+            {
+                movement.Destination = value;
+                voice.IsWalking = value is { } destination
+                                  && Vector2.Distance(Position, destination.Position) >= destination.Radius;
+            }
+        }
+
+        public bool WalksSilently
+        {
+            get => voice.WalksSilently;
+            set => voice.WalksSilently = value;
         }
 
         public void Awake()
@@ -74,16 +85,6 @@ namespace Gnome
             behaviour?.OnPerish();
             voice.Perish();
             Destroy(gameObject);
-        }
-
-        public void StartWalk()
-        {
-            voice.StartWalk();
-        }
-
-        public void StopWalk()
-        {
-            voice.StopWalk();
         }
     }
 }

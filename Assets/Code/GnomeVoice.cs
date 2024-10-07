@@ -23,6 +23,36 @@ namespace Gnome
         public AudioSource Source;
         public AudioSource WalkSource;
 
+        private bool isWalking;
+        private bool walksSilently = true;
+
+        public bool IsWalking
+        {
+            get => isWalking;
+            set
+            {
+                if (isWalking == value) return;
+                isWalking = value;
+                
+                if (WalksSilently) return;
+                if (value) StartWalk();
+                else StopWalk();
+            }
+        }
+
+        public bool WalksSilently
+        {
+            get => walksSilently;
+            set
+            {
+                if (walksSilently == value) return;
+                walksSilently = value;
+                if (!isWalking) return;
+                if (value) StopWalk();
+                else StartWalk();
+            }
+        }
+
         public void Bark()
         {
             Play(Barks.RandomElement());
@@ -42,12 +72,12 @@ namespace Gnome
             Destroy(Source.gameObject, yelp.Clip.length);
         }
 
-        public void StartWalk()
+        private void StartWalk()
         {
             WalkSource.Play();
         }
 
-        public void StopWalk()
+        private void StopWalk()
         {
             WalkSource.Pause();
         }
