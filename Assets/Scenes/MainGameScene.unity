@@ -213,8 +213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trigger: {fileID: 6644675}
-  EmotionFrequency: 12
-  LonelinessFrequency: 6
+  BaseFrequency: 4.5
+  RandomFrequency: 6
+  Talkativeness: 0.2
+  TalkativenessLimit: 4
 --- !u!1001 &12938162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5397,6 +5399,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5857077706397345018, guid: 429bf14e11c00c947942b89d468916c8, type: 3}
   m_PrefabInstance: {fileID: 1622177192}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &236617908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &236617909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 236617908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &250207102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5807,6 +5871,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6871104754874824507, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
   m_PrefabInstance: {fileID: 410840844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &448403416
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &448403417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 448403416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &497761642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6100,6 +6226,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
+--- !u!4 &576668535 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 8082219938068136845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &592088441
 GameObject:
   m_ObjectHideFlags: 0
@@ -13892,6 +14023,68 @@ Transform:
   - {fileID: 1180850732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1146374961
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &1146374962 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 1146374961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1146904640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 601273785649717856, guid: d81a47ddcae126440864d84619d7f266, type: 3}
@@ -18768,6 +18961,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ed6dbf65004510ae2e1f7aca72aebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1830476258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &1830476259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 1830476258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1836848364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20113,6 +20368,182 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6871104754874824507, guid: 634937da428ce084b9ee50d6adbf5ffe, type: 3}
   m_PrefabInstance: {fileID: 1639972266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2022770055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2022770056}
+  - component: {fileID: 2022770057}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2022770056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022770055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.13, y: 0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 576668535}
+  - {fileID: 236617909}
+  - {fileID: 1146374962}
+  - {fileID: 2050585714}
+  - {fileID: 1830476259}
+  - {fileID: 448403417}
+  - {fileID: 2026427253}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022770057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022770055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c6aa5743fb48b69f11e1ae66924201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority: -5
+--- !u!1001 &2026427252
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &2026427253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 2026427252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2050585713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+--- !u!4 &2050585714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+  m_PrefabInstance: {fileID: 2050585713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113393241
 GameObject:
   m_ObjectHideFlags: 0
@@ -21238,6 +21669,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5857077706397345018, guid: 429bf14e11c00c947942b89d468916c8, type: 3}
   m_PrefabInstance: {fileID: 7443536221322313307}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8082219938068136845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2022770056}
+    m_Modifications:
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429675562821960666, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317856528333487936, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
+      propertyPath: m_Name
+      value: Pinecone Gnome
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c82e8e98d60d47af97743fa98351c3e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -21255,3 +21743,4 @@ SceneRoots:
   - {fileID: 605502169}
   - {fileID: 833187587}
   - {fileID: 340854348}
+  - {fileID: 2022770056}
