@@ -300,11 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349ededd183e4b0bb5d7a4fdbc807937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroAnimation: {fileID: 0}
+  IntroAnimation: {fileID: 720748414883184345}
   FirstGnome: {fileID: 0}
   CameraController: {fileID: 0}
-  EmotionPerception: {fileID: 0}
   Config: {fileID: 11400000, guid: 048547cb15633449aa64a17bca53d524, type: 2}
+  DisableOnIntro: []
 --- !u!1 &3675344632383482648
 GameObject:
   m_ObjectHideFlags: 0
