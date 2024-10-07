@@ -23,7 +23,7 @@ namespace Gnome
         private bool muteNoise = false;
         private int gnomeDustCount = 0;
         private GnomeAgent leader = null;
-        private const int GnomeDustToWin = 1;
+        private const int GnomeDustToWin = 69;
 
         public void Awake()
         {
