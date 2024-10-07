@@ -76,7 +76,6 @@ namespace Gnome
             {
                 WinScreen.SetActive(true);
                 leader?.SetBehaviour(null);
-                GameUI.gameObject.SetActive(false);
             }
         }
 
