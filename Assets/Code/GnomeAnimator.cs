@@ -11,6 +11,13 @@ namespace Gnome
             public bool Flip;
         }
 
+        public struct JumpAnimationData
+        {
+            public float Height;
+            public float Start;
+            public float End;
+        }
+
         public struct State
         {
             public float Jump;
@@ -26,6 +33,7 @@ namespace Gnome
         public float SmoothTime;
         
         private WalkAnimationData? walkData;
+        private JumpAnimationData? jumpData;
         private State state;
         private State velocity;
 
@@ -54,6 +62,17 @@ namespace Gnome
                 target.Jump = Mathf.Sin(time * WalkSpeed * 2) * JumpHeight;
             }
 
+            if (jumpData is { } jump)
+            {
+                var t = Mathf.InverseLerp(jump.Start, jump.End, Time.time);
+                target.Jump = Mathf.Clamp01((t - t * t) * 4) * jump.Height;
+
+                if (Time.time > jump.End)
+                {
+                    jumpData = null;
+                }
+            }
+
             var newState = new State
             {
                 Jump = Mathf.SmoothDamp(state.Jump, target.Jump, ref velocity.Jump, SmoothTime),
@@ -73,6 +92,16 @@ namespace Gnome
                     sprite.flipX = flipX;
                 }
             }
+        }
+
+        public void Jump(float strength)
+        {
+            jumpData = new JumpAnimationData
+            {
+                Start = Time.time,
+                End = Time.time + strength / 2,
+                Height = strength,
+            };
         }
     }
 }

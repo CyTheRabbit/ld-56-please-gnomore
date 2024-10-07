@@ -13,6 +13,8 @@ namespace Gnome
             void OnPerish() { }
         }
 
+        public string Desire;
+
         private GnomeMovement movement;
         private GnomeAnimator animator;
         private IBehaviour behaviour;
@@ -78,6 +80,7 @@ namespace Gnome
         public void Bark()
         {
             voice.Bark();
+            animator.Jump(0.66f);
         }
 
         public void Perish()
@@ -85,6 +88,11 @@ namespace Gnome
             behaviour?.OnPerish();
             voice.Perish();
             Destroy(gameObject);
+        }
+
+        public void Jump()
+        {
+            animator.Jump(0.66f);
         }
     }
 }

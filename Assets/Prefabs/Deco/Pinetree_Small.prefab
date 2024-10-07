@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1423215158608352609}
   - component: {fileID: 1831777196759926260}
   - component: {fileID: 5903592588842039087}
+  - component: {fileID: 3565219499222836037}
   m_Layer: 0
   m_Name: Pinetree_Small
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3209152, y: 1.1458082}
   m_EdgeRadius: 0
+--- !u!114 &3565219499222836037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930664065530174148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16960846ee0e4c6eabebbe59e867f410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
