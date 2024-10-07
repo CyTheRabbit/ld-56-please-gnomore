@@ -1337,6 +1337,10 @@ PrefabInstance:
       value: -0.91725236
       objectReference: {fileID: 0}
     - target: {fileID: 5799608302027356044, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799608302027356044, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
       propertyPath: m_ColliderSegment.Array.size
       value: 65
       objectReference: {fileID: 0}
@@ -3408,6 +3412,10 @@ PrefabInstance:
       propertyPath: m_ShapeTexture
       value: 
       objectReference: {fileID: 2800000, guid: 49d65634f6a28af4b99aa2ee77fbb17d, type: 3}
+    - target: {fileID: 6341798100292084864, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6341798100292084864, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0

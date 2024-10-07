@@ -481,6 +481,10 @@ PrefabInstance:
       value: 0.4222709
       objectReference: {fileID: 0}
     - target: {fileID: 5799608302027356044, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799608302027356044, guid: c5a255a7854663044b7b09cc58efa2fc, type: 3}
       propertyPath: m_ColliderSegment.Array.size
       value: 58
       objectReference: {fileID: 0}
