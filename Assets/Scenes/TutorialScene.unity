@@ -9964,6 +9964,10 @@ PrefabInstance:
       propertyPath: DisableOnIntro.Array.data[2]
       value: 
       objectReference: {fileID: 7995127910953448580}
+    - target: {fileID: 7504884801967863095, guid: 94c6150cc1b194ff78c3c3eebd8b5f00, type: 3}
+      propertyPath: DisableOnIntro.Array.data[3]
+      value: 
+      objectReference: {fileID: 7995127910953448580}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

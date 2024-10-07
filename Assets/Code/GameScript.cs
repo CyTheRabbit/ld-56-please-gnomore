@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Gnome
 {
@@ -9,8 +11,12 @@ namespace Gnome
         public GnomeAgent FirstGnome;
         public CameraController CameraController;
         public GameplayConfig Config;
+        [Space]
+        public AudioMixer AudioMixer;
 
         public Behaviour[] DisableOnIntro;
+
+        private bool muteNoise = false;
 
         public void Awake()
         {
@@ -35,6 +41,15 @@ namespace Gnome
 
             var playerCrowd = new Crowd(priority: 0);
             FirstGnome.SetBehaviour(new GnomeLeaderBehaviour(CameraController, Config, FirstGnome, playerCrowd));
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                muteNoise = !muteNoise;
+                AudioMixer.SetFloat("NoiseVolume", muteNoise ? -80 : 0);
+            }
         }
     }
 }

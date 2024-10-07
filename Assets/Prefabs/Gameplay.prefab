@@ -304,6 +304,7 @@ MonoBehaviour:
   FirstGnome: {fileID: 0}
   CameraController: {fileID: 0}
   Config: {fileID: 11400000, guid: 048547cb15633449aa64a17bca53d524, type: 2}
+  AudioMixer: {fileID: 24100000, guid: d4d80a05183ae4a769366f50a1dbceb0, type: 2}
   DisableOnIntro: []
 --- !u!1 &3675344632383482648
 GameObject:

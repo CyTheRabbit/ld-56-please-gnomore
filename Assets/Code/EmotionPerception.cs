@@ -34,7 +34,8 @@ namespace Gnome
             while (crowd.Members.Count > 0)
             {
                 var visibleMembers = crowd.Members
-                    .Where(member => Trigger.OverlapPoint(member.Position))
+                    .Where(member => Trigger.OverlapPoint(member.Position)
+                                     && member.Behaviour is not GnomeLeaderBehaviour)
                     .ToArray();
                 if (visibleMembers.Length != 0)
                 {
