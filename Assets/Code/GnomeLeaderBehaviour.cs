@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 namespace Gnome
 {
     public class GnomeLeaderBehaviour : GnomeAgent.IBehaviour
     {
+        private readonly GameScript game;
         private readonly CameraController camera;
         private readonly GameplayConfig config;
         private readonly GnomeAgent leader;
@@ -22,8 +22,14 @@ namespace Gnome
 
         public int Priority => 100;
 
-        public GnomeLeaderBehaviour(CameraController camera, GameplayConfig config, GnomeAgent leader, Crowd crowd)
+        public GnomeLeaderBehaviour(
+            GameScript game,
+            CameraController camera,
+            GameplayConfig config,
+            GnomeAgent leader,
+            Crowd crowd)
         {
+            this.game = game;
             this.camera = camera;
             this.config = config;
             this.leader = leader;
@@ -60,11 +66,15 @@ namespace Gnome
 
         public void OnPerish()
         {
-            var successor = leader.Crowd.Members.FirstOrDefault(successor => successor != leader);
+            var successor = FindSuccessor(config.JoinRadius);
             if (successor != null)
             {
                 leader.SetBehaviour(null);
-                successor.SetBehaviour(new GnomeLeaderBehaviour(camera, config, successor, crowd));
+                successor.SetBehaviour(new GnomeLeaderBehaviour(game, camera, config, successor, crowd));
+            }
+            else
+            {
+                game.GameOver();
             }
         }
 
@@ -168,12 +178,25 @@ namespace Gnome
             var neighboursCount = Physics2D.OverlapCircleNonAlloc(leader.Position, radius, neighbours);
             for (var i = 0; i < neighboursCount; i++)
             {
-                var neighbour = neighbours[i];
-                if (neighbour.GetComponent<GnomeAgent>() is { } gnome)
+                if (neighbours[i].GetComponent<GnomeAgent>() is { } gnome && gnome != leader)
                 {
                     TryInvite(gnome);
                 }
             }
+        }
+
+        private GnomeAgent FindSuccessor(float radius)
+        {
+            var neighboursCount = Physics2D.OverlapCircleNonAlloc(leader.Position, radius, neighbours);
+            for (var i = 0; i < neighboursCount; i++)
+            {
+                if (neighbours[i].GetComponent<GnomeAgent>() is { } gnome && gnome != leader)
+                {
+                    return gnome;
+                }
+            }
+
+            return null;
         }
 
         private void TryInvite(GnomeAgent gnome)

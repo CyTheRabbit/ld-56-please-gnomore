@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 namespace Gnome
 {
     public class GameScript : MonoBehaviour
     {
         public Animation IntroAnimation;
+        public Animation GameOverAnimation;
+        public GameObject GameOverScreen;
         public GnomeAgent FirstGnome;
         public CameraController CameraController;
         public GameplayConfig Config;
@@ -40,7 +43,7 @@ namespace Gnome
             }
 
             var playerCrowd = new Crowd(priority: 0);
-            FirstGnome.SetBehaviour(new GnomeLeaderBehaviour(CameraController, Config, FirstGnome, playerCrowd));
+            FirstGnome.SetBehaviour(new GnomeLeaderBehaviour(game: this, CameraController, Config, FirstGnome, playerCrowd));
         }
 
         private void Update()
@@ -50,6 +53,17 @@ namespace Gnome
                 muteNoise = !muteNoise;
                 AudioMixer.SetFloat("NoiseVolume", muteNoise ? -80 : 0);
             }
+        }
+
+        public void GameOver()
+        {
+            GameOverScreen.SetActive(true);
+            GameOverAnimation.Play();
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(gameObject.scene.name);
         }
     }
 }
