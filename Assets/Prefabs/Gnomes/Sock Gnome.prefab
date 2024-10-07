@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: BodyColor.key1.r
       value: 0.85549104
       objectReference: {fileID: 0}
+    - target: {fileID: 3343279428560853837, guid: f8eda28687e5d4e6e9afc7c41bcfc279, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c33e7cc5dd89b45438a0b81e696dc89d, type: 3}
     - target: {fileID: 3912870955467601260, guid: f8eda28687e5d4e6e9afc7c41bcfc279, type: 3}
       propertyPath: m_Name
       value: Sock Gnome
