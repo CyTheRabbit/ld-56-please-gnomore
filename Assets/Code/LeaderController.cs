@@ -10,7 +10,7 @@ namespace Gnome
 
         public void Start()
         {
-            var crowd = new Crowd();
+            var crowd = new Crowd(priority: 0);
             Leader.SetBehaviour(new GnomeLeaderBehaviour(Camera, Config, Leader, crowd));
         }
     }

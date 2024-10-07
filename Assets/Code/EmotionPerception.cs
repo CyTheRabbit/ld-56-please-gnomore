@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,43 +8,47 @@ namespace Gnome
 {
     public class EmotionPerception : MonoBehaviour
     {
-        public float EmotionFrequency = 12f;
-        public float LonelinessFrequency = 6f;
+        public BoxCollider2D Trigger;
+        public float BaseFrequency = 4.5f;
+        public float RandomFrequency = 6f;
+        public float Talkativeness = 0.2f;
+        public float TalkativenessLimit = 4f;
 
-        private readonly List<GnomeAgent> gnomes = new();
-
-        public void Start()
-        {
-            StartCoroutine(EmotionsActivationRoutine());
-        }
+        private readonly HashSet<Crowd> crowds = new();
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.GetComponent<GnomeAgent>() is { } gnome)
+            if (other.GetComponent<GnomeAgent>() is { Crowd: { } crowd } gnome)
             {
-                gnomes.Add(gnome);
-            }
-        }
-
-        public void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.GetComponent<GnomeAgent>() is { } gnome)
-            {
-                gnomes.Remove(gnome);
-            }
-        }
-
-        private IEnumerator EmotionsActivationRoutine()
-        {
-            while (this != null)
-            {
-                yield return new WaitForSeconds(EmotionFrequency * Random.value + LonelinessFrequency / Mathf.Max(gnomes.Count, 1));
-
-                var randomGnome = gnomes[Random.Range(0, gnomes.Count)];
-                if (randomGnome.Behaviour is GnomeFollowBehaviour)
+                if (crowds.Add(crowd))
                 {
-                    randomGnome.Wish();
+                    StartCoroutine(CrowdEmotionsRoutine(crowd));
                 }
+            }
+        }
+
+        private IEnumerator CrowdEmotionsRoutine(Crowd crowd)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            while (crowd.Members.Count > 0)
+            {
+                var visibleMembers = crowd.Members
+                    .Where(member => Trigger.OverlapPoint(member.Position))
+                    .ToArray();
+                if (visibleMembers.Length != 0)
+                {
+                    var member = visibleMembers.RandomElement();
+                    member.Wish();
+                }
+
+                yield return new WaitForSeconds(
+                    BaseFrequency
+                    + RandomFrequency * Random.value
+                    - Mathf.Clamp(
+                        Talkativeness * crowd.Members.Count,
+                        min: 0,
+                        max: TalkativenessLimit));
             }
         }
     }

@@ -5,7 +5,7 @@ namespace Gnome
         private readonly GnomeAgent gnome;
         private readonly Crowd crowd;
 
-        public int Priority => 0;
+        public int Priority => crowd.Priority;
 
         public GnomeFollowBehaviour(
             GnomeAgent gnome,

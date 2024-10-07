@@ -27,6 +27,12 @@ namespace Gnome
 
         public readonly List<GnomeAgent> Members = new();
         public Vector2 Center;
+        public int Priority;
+
+        public Crowd(int priority)
+        {
+            Priority = priority;
+        }
 
         public void Invite(GnomeAgent gnome)
         {
