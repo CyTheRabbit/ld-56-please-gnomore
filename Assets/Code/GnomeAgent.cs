@@ -20,6 +20,7 @@ namespace Gnome
         private IBehaviour behaviour;
         private new CircleCollider2D collider;
         private GnomeVoice voice;
+        private GnomeThoughts thoughts;
 
         public Crowd Crowd;
 
@@ -51,6 +52,7 @@ namespace Gnome
             movement = GetComponent<GnomeMovement>();
             animator = GetComponent<GnomeAnimator>();
             voice = GetComponent<GnomeVoice>();
+            thoughts = GetComponent<GnomeThoughts>();
         }
 
         public void OnEnable()
@@ -93,6 +95,12 @@ namespace Gnome
         public void Jump()
         {
             animator.Jump(0.66f);
+        }
+
+        public void Wish()
+        {
+            thoughts.Wish();
+            voice.Wish();
         }
     }
 }

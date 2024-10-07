@@ -19,6 +19,7 @@ namespace Gnome
         public Sound[] PunchSounds;
         public Sound[] Barks;
         public Sound[] Yelps;
+        public Sound[] Wishes;
 
         public AudioSource Source;
         public AudioSource WalkSource;
@@ -86,6 +87,11 @@ namespace Gnome
         {
             Source.pitch = Random.Range(sound.PitchMin, sound.PitchMax);
             Source.PlayOneShot(sound.Clip, Random.Range(sound.VolumeMin, sound.VolumeMax));
+        }
+
+        public void Wish()
+        {
+            Play(Wishes.RandomElement());
         }
     }
 }
