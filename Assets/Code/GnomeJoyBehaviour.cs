@@ -21,6 +21,8 @@ namespace Gnome
         public void Start()
         {
             coroutine = gnome.StartCoroutine(JumpOfJoy());
+
+            Object.FindObjectOfType<GameScript>().GainGnomeDust();
         }
 
         public void End()

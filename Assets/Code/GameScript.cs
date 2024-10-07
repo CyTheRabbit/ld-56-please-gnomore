@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -11,6 +10,7 @@ namespace Gnome
         public Animation IntroAnimation;
         public Animation GameOverAnimation;
         public GameObject GameOverScreen;
+        public GameUI GameUI;
         public GnomeAgent FirstGnome;
         public CameraController CameraController;
         public GameplayConfig Config;
@@ -20,6 +20,7 @@ namespace Gnome
         public Behaviour[] DisableOnIntro;
 
         private bool muteNoise = false;
+        private int gnomeDustCount = 0;
 
         public void Awake()
         {
@@ -27,6 +28,7 @@ namespace Gnome
             {
                 behaviour.enabled = false;
             }
+            GameUI.gameObject.SetActive(false);
         }
 
         public IEnumerator Start()
@@ -44,6 +46,7 @@ namespace Gnome
 
             var playerCrowd = new Crowd(priority: 0);
             FirstGnome.SetBehaviour(new GnomeLeaderBehaviour(game: this, CameraController, Config, FirstGnome, playerCrowd));
+            GameUI.gameObject.SetActive(true);
         }
 
         private void Update()
@@ -57,8 +60,15 @@ namespace Gnome
 
         public void GameOver()
         {
+            GameUI.gameObject.SetActive(false);
             GameOverScreen.SetActive(true);
             GameOverAnimation.Play();
+        }
+
+        public void GainGnomeDust()
+        {
+            gnomeDustCount++;
+            GameUI.SetGnomeDustCount(gnomeDustCount);
         }
 
         public void RestartGame()
