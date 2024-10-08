@@ -10,6 +10,7 @@ namespace Gnome
         private Coroutine attackCoroutine;
 
         public int Priority => victim.Priority;
+        public IPunchable Victim => victim;
 
         public GnomeAttackBehaviour(GnomeAgent gnome, IPunchable victim)
         {

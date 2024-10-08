@@ -119,7 +119,9 @@ namespace Gnome
 
         public void RemoveOpponent(GnomeAgent gnome)
         {
-            if (Opponents.Remove(gnome))
+            if (Opponents.Remove(gnome)
+                && gnome.Behaviour is GnomeAttackBehaviour attack
+                && attack.Victim == this)
             {
                 gnome.SetBehaviour(null);
             }

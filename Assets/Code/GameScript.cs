@@ -49,6 +49,7 @@ namespace Gnome
 
             var playerCrowd = new Crowd(priority: 0);
             FirstGnome.SetBehaviour(new GnomeLeaderBehaviour(game: this, CameraController, Config, FirstGnome, playerCrowd));
+            leader = FirstGnome;
             GameUI.gameObject.SetActive(true);
         }
 
@@ -79,14 +80,54 @@ namespace Gnome
             }
         }
 
-        public void OnLeaderChanged(GnomeAgent gnome)
+        public void OnLeaderPerished()
         {
-            leader = gnome;
+            var routine = FindNewLeader(leader.Crowd, leader.Position);
+            leader.SetBehaviour(null);
+            leader = null;
+            StartCoroutine(routine);
         }
 
         public void RestartGame()
         {
             SceneManager.LoadScene(gameObject.scene.name);
+        }
+
+        private IEnumerator FindNewLeader(Crowd crowd, Vector2 position)
+        {
+            var neighbours = new Collider2D[128];
+
+            const int attemptsCount = 15;
+            for (var i = 0; i < attemptsCount; i++)
+            {
+                yield return null;
+                var successor = FindSuccessor(Config.JoinRadius, position, neighbours);
+                if (successor != null)
+                {
+                    successor.SetBehaviour(new GnomeLeaderBehaviour(game: this, CameraController, Config, successor, crowd));
+                    leader = successor;
+                    yield break;
+                }
+            }
+
+            GameOver();
+        }
+
+        private GnomeAgent FindSuccessor(float radius, Vector2 position, Collider2D[] neighbours)
+        {
+
+            var neighboursCount = Physics2D.OverlapCircleNonAlloc(position, radius, neighbours);
+            for (var i = 0; i < neighboursCount; i++)
+            {
+                if (neighbours[i].GetComponent<GnomeAgent>() is { } gnome
+                    && gnome != leader
+                    && gnome.isActiveAndEnabled)
+                {
+                    return gnome;
+                }
+            }
+
+            return null;
         }
     }
 }

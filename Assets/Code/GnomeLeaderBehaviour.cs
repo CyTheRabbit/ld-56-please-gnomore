@@ -38,7 +38,6 @@ namespace Gnome
 
         public void Start()
         {
-            game.OnLeaderChanged(leader);
             camera.Player = leader;
             crowd.Invite(leader);
             leader.WalksSilently = false;
@@ -48,7 +47,6 @@ namespace Gnome
 
         public void End()
         {
-            game.OnLeaderChanged(null);
             camera.Player = null;
             crowd.Exile(leader);
             leader.WalksSilently = true;
@@ -68,16 +66,7 @@ namespace Gnome
 
         public void OnPerish()
         {
-            var successor = FindSuccessor(config.JoinRadius);
-            if (successor != null)
-            {
-                leader.SetBehaviour(null);
-                successor.SetBehaviour(new GnomeLeaderBehaviour(game, camera, config, successor, crowd));
-            }
-            else
-            {
-                game.GameOver();
-            }
+            game.OnLeaderPerished();
         }
 
         private IEnumerator FixedUpdateLoop()
@@ -185,20 +174,6 @@ namespace Gnome
                     TryInvite(gnome);
                 }
             }
-        }
-
-        private GnomeAgent FindSuccessor(float radius)
-        {
-            var neighboursCount = Physics2D.OverlapCircleNonAlloc(leader.Position, radius, neighbours);
-            for (var i = 0; i < neighboursCount; i++)
-            {
-                if (neighbours[i].GetComponent<GnomeAgent>() is { } gnome && gnome != leader)
-                {
-                    return gnome;
-                }
-            }
-
-            return null;
         }
 
         private void TryInvite(GnomeAgent gnome)
